@@ -5,3 +5,5 @@
 /FeatureFlag/.vs
 /FeatureFlag/FeatureFlag.Server/obj
 /FeatureFlag/FeatureFlag.Server/bin/Debug/net8.0
+/FeatureFlag/FeatureFlag.Server/FeatureFlag.Server.csproj.user
+/FeatureFlag/FeatureFlag.Server/FeatureFlag.Server.csproj.user
