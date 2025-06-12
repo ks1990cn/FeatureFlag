@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FeatureFlag/.vs
+/FeatureFlag/FeatureFlag.Server/obj
+/FeatureFlag/FeatureFlag.Server/bin/Debug/net8.0
