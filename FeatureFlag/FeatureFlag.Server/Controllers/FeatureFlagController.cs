@@ -10,8 +10,8 @@ namespace FeatureFlag.Server.Controllers
     {
        
         // GET api/<FeatureFlagController>/5
-        [HttpGet("{projectName}/{key}")]
-        public string Get(string projectName, string key)
+        [HttpGet("{projectName}/{flagName}")]
+        public string Get(string projectName, string flagName)
         {
             return "value";
         }
