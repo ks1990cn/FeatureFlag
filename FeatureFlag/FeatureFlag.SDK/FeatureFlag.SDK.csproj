@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="docker-compose.yml" />
-  </ItemGroup>
-
 </Project>
