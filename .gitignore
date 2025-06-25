@@ -2,10 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/FeatureFlag/.vs
-/FeatureFlag/FeatureFlag.Server/obj
-/FeatureFlag/FeatureFlag.Server/bin/Debug/net8.0
-/FeatureFlag/FeatureFlag.Server/FeatureFlag.Server.csproj.user
-/FeatureFlag/FeatureFlag.Server/FeatureFlag.Server.csproj.user
-/FeatureFlag/FeatureFlag.SDK/obj
-/FeatureFlag/SampleApp/obj
+# Build Folders
+bin/
+obj/
+*.user
+*.vs/
+*.suo
+*.pdb
+*.dll
+*.exe
+*.log
+*.cache
+
