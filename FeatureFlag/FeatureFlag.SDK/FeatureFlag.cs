@@ -1,16 +1,30 @@
-﻿using FeatureFlag.SDK;
+﻿using System.Runtime.Caching;
 
 namespace FeatureFlag.SDK
 {
-    public class FeatureFlag
+    public class FeatureFlags
     {
-        public void IsFeatureFlagEnabled(FeatureFlagModel featureFlagModel)
+        MemoryCache cache = MemoryCache.Default;
+        public FeatureFlags()
         {
-
+                
+        }
+        public bool IsFeatureFlagEnabled(FeatureFlagModel featureFlagModel)
+        {
+            return (bool)cache[featureFlagModel.FlagName];
         }
 
         public void AddFeatureFlag(FeatureFlagModel featureFlagModel)
         {
+
+            string key = "myKey";
+            cache.Add(new CacheItem(key) { Value = true}, new CacheItemPolicy() { });
+
+            //if (value == null)
+            //{
+            //    value = true;
+            //    cache.Set(key, value, DateTimeOffset.Now.AddMinutes(5));
+            //}
 
         }
         public void UpdateFeatureFlag(FeatureFlagModel featureFlagModel)
