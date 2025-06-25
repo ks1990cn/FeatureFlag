@@ -4,10 +4,11 @@ services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlserver
+    hostname: sqltest  # Acts as an alias for the container
     environment:
-     - ACCEPT_EULA=Y
-     - SA_PASSWORD=YourStrong@Passw0rd
-     - MSSQL_TCP_PORT=1433
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_TCP_PORT=1433
     ports:
       - "1433:1433"
     volumes:
@@ -23,3 +24,4 @@ services:
 
 volumes:
   sql_data:
+# localhost\sqltest,1433 + password
