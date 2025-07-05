@@ -21,10 +21,17 @@ namespace FeatureFlag.SDK
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if(_password == "abc")
+            if (_password == "abc")
+            {
                 _featureFlagLogin.IsFlagLoggedIn = true;
 
-            await _next(context);
+                await _next(context);
+            }
+            else
+            {
+                throw new Exception("Unable to connect with feature flag system. Check Password.");
+            }
+             
         }
     }
 }
