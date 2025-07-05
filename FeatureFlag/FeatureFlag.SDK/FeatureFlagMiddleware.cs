@@ -21,7 +21,7 @@ namespace FeatureFlag.SDK
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (_password == "abc")
+            if (_password != null && _password == "abc")
             {
                 _featureFlagLogin.IsFlagLoggedIn = true;
 
