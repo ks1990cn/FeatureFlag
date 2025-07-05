@@ -1,6 +1,6 @@
 ﻿namespace FeatureFlag.SDK
 {
-    public class FeatureFlagModel : FeatureFlagLogin
+    public class FeatureFlagModel
     {
         public string ProjectName { get; set; }
         public string FlagName { get; set; }

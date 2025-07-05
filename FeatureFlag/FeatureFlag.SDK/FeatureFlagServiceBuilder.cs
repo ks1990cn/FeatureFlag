@@ -12,7 +12,7 @@ namespace FeatureFlag.SDK
 
         public static void FeatureFlagBuilder(this IServiceCollection services)
         {
-            services.AddSingleton<FeatureFlagLogin>();
+            services.AddSingleton<FeatureFlagLoginDetails>();
             services.AddTransient<IFeatureFlags, FeatureFlags>();
         }
     }

@@ -11,11 +11,11 @@ namespace FeatureFlag.SDK
     {
         private readonly RequestDelegate _next;
         private readonly string _password;
-        private readonly FeatureFlagLogin _featureFlagLogin;
-        public FeatureFlagMiddleware(RequestDelegate next, FeatureFlagLogin featureFlagLogin, string password)
+        private readonly FeatureFlagLoginDetails _featureFlagLoginDetails;
+        public FeatureFlagMiddleware(RequestDelegate next, FeatureFlagLoginDetails featureFlagLogin, string password)
         {
             _next = next;
-            _featureFlagLogin = featureFlagLogin;
+            _featureFlagLoginDetails = featureFlagLogin;
             _password = password;
         }
 
@@ -23,8 +23,8 @@ namespace FeatureFlag.SDK
         {
             if (_password != null && _password == "abc")
             {
-                _featureFlagLogin.IsFlagLoggedIn = true;
-
+                _featureFlagLoginDetails.IsFlagLoggedIn = true;
+                _featureFlagLoginDetails.Org_Id = 1;
                 await _next(context);
             }
             else
