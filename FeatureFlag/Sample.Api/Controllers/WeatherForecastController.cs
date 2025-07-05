@@ -1,3 +1,4 @@
+using FeatureFlag.SDK;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Sample.Api.Controllers
@@ -6,6 +7,7 @@ namespace Sample.Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        IFeatureFlags _featureFlags;
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -13,14 +15,16 @@ namespace Sample.Api.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IFeatureFlags featureFlags)
         {
             _logger = logger;
+            _featureFlags = featureFlags;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _featureFlags.IsFlagEnabled();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

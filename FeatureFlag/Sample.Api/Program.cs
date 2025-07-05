@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.FeatureFlagBuilder();
 
 var app = builder.Build();
 
@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseMiddleware<FeatureFlagMiddleware>();
+app.UseMiddleware<FeatureFlagMiddleware>("abc");
 
 app.UseAuthorization();
 

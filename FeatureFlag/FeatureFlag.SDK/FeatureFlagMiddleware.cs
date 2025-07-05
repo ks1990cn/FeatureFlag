@@ -7,11 +7,24 @@ using Microsoft.AspNetCore.Http;
 
 namespace FeatureFlag.SDK
 {
-    public class FeatureFlagMiddleware : IMiddleware
+    public class FeatureFlagMiddleware
     {
-        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        private readonly RequestDelegate _next;
+        private readonly string _password;
+        private readonly FeatureFlagLogin _featureFlagLogin;
+        public FeatureFlagMiddleware(RequestDelegate next, FeatureFlagLogin featureFlagLogin, string password)
         {
-            await next(context);
+            _next = next;
+            _featureFlagLogin = featureFlagLogin;
+            _password = password;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            if(_password == "abc")
+                _featureFlagLogin.IsFlagLoggedIn = true;
+
+            await _next(context);
         }
     }
 }

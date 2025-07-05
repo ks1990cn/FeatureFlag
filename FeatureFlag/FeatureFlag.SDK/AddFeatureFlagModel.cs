@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FeatureFlag.SDK
 {
-    public class AddFeatureFlagModel
+    public class AddFeatureFlagModel : FeatureFlagLogin
     {
         public int FlagId { get; set; }
         public string FlagName { get; set; }
