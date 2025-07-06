@@ -14,6 +14,7 @@ namespace FeatureFlag.SDK
         {
             services.AddSingleton<FeatureFlagLoginDetails>();
             services.AddTransient<IFeatureFlags, FeatureFlags>();
+            services.AddMemoryCache();
         }
     }
 }

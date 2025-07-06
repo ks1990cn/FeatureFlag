@@ -2,6 +2,7 @@
 {
     public interface IFeatureFlags
     {
-        void IsFlagEnabled();
+        void AddFeatureFlag(AddFeatureFlagModel addFeatureFlagModel);
+        bool IsFlagEnabled(string featureFlagName);
     }
 }

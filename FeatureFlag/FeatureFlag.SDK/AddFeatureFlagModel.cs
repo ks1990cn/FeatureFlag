@@ -11,7 +11,6 @@ namespace FeatureFlag.SDK
         public int FlagId { get; set; }
         public string FlagName { get; set; }
         public bool IsEnabled { get; set; }
-        public int Org_Id { get; set; }
         public int Created_By_User_Id { get; set; }
     }
 }

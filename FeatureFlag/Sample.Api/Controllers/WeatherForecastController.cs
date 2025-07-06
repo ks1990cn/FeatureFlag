@@ -24,7 +24,7 @@ namespace Sample.Api.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            _featureFlags.IsFlagEnabled();
+            var abc  = _featureFlags.IsFlagEnabled("NewDashboard");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
