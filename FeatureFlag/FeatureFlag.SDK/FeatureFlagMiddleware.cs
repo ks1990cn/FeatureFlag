@@ -40,6 +40,7 @@ namespace FeatureFlag.SDK
 
         }
 
+        // here need to cache most used flags per org.
         private void CacheFeatureFlagAndState(int org_id)
         {
             string selectQuery = "SELECT Org_Id, Flag_Name FROM FeatureFlags WHERE Is_Enabled = 1";
